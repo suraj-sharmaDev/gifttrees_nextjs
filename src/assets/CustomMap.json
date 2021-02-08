@@ -1,0 +1,11 @@
+[
+    {
+      "featureType": "landscape.natural",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#c3dfdc"
+        }
+      ]
+    }
+  ]
