@@ -63,6 +63,7 @@ const Profile = (props) => {
     const { plantedTree } = trees;
 
     useEffect(()=>{
+        console.log(props);
         if(typeof props.apires !== 'undefined' && !state.loading){
             setState({
                 ...state,
@@ -80,8 +81,15 @@ const Profile = (props) => {
     return (
         <div>
             <Head>
-                <title>{props.email}</title>
+                <title>{props.apires?.data?.first_name} {props.apires?.data?.last_name}</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={`${props.apires?.data?.first_name} ${props.apires?.data?.last_name}`} />
+                <meta property="og:description" content="GiftTrees Profile Page" />
+                <meta property="og:image" content={props.apires?.data?.url} />
+                <meta property="og:image:width" content="605" />
+                <meta property="og:image:height" content="380" />
+                <meta property="og:image:alt" content="Profile thumbnail" />
             </Head>            
             <section className={ `${ authStatus !== authStatuses.AUTHENTICATED ? 'banner-sec': ''} profile-sec` }>
                 <div className='social-links'>
