@@ -29,10 +29,8 @@ const connector = connect(mapStateToProps, mapDispatchTopProps);
 
 export async function getStaticPaths() {
     return {
-        paths: [
-            { params: { Profile: '' } },
-        ],
-      fallback: true // See the "fallback" section below
+        paths: [],
+        fallback: true // See the "fallback" section below
     };
 }
 
