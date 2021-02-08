@@ -7,7 +7,8 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {createWrapper} from 'next-redux-wrapper';
-import {store} from '../store';
+import { PersistGate } from 'redux-persist/integration/react';
+import reduxStore from '../store';
 
 import '../../public/vendor/bootstrap/css/bootstrap.min.css';
 import '../../public/css/font-awesome.css';
@@ -17,15 +18,15 @@ import '../../public/css/bio.css';
 
 const App = ({Component, pageProps}) => {
     return(
-        <>
-            <Provider store={store}>
+        <Provider store={reduxStore}>
+            <PersistGate persistor={reduxStore.__PERSISTOR} loading={null}>
                 <Component {...pageProps} />
-            </Provider>
-        </>
+            </PersistGate>
+        </Provider>
     );
 }
 
-const makestore = () => store;
+const makestore = () => reduxStore;
 const wrapper = createWrapper(makestore);
 
 export default wrapper.withRedux(App);

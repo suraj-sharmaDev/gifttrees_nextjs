@@ -16,9 +16,14 @@ const loggerMiddleware = createLogger({
     predicate: () => isLoggingEnabled,
 });
 
-export const store = createStore(
+const isClient = typeof window !== 'undefined';
+let store = createStore(
     rootReducer,
     applyMiddleware(thunkMiddleware, loggerMiddleware),
 );
 
-export const persistor = persistStore(store);
+if(isClient){
+     store.__PERSISTOR = persistStore(store);
+}
+
+export default store;

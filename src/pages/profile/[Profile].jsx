@@ -59,9 +59,9 @@ const Profile = (props) => {
         profileIcon: Images.avatarPlaceHolder
     });
     const {auth, trees, fetchPlantedTreeCount, fetchAllowedTreeCount,} = props;
-    const { authStatus } = auth;
+    // const { authStatus } = auth;
     const { plantedTree } = trees;
-
+    
     useEffect(()=>{
         console.log(props);
         if(typeof props.apires !== 'undefined' && !state.loading){
@@ -91,7 +91,7 @@ const Profile = (props) => {
                 <meta property="og:image:height" content="380" />
                 <meta property="og:image:alt" content="Profile thumbnail" />
             </Head>            
-            <section className={ `${ authStatus !== authStatuses.AUTHENTICATED ? 'banner-sec': ''} profile-sec` }>
+            <section className={ `banner-sec profile-sec` }>
                 <div className='social-links'>
                     <FacebookShareButton className='pull-right mr-1 mt-2' url={ shareUrl }>
                         <img alt="Facebook" src="../images/facebook.svg" width='25px' />

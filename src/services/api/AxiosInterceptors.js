@@ -4,7 +4,7 @@
  *  Created On : Tue Dec 22 2020
  *  File : AxiosInterceptors.js
  *******************************************/
-import {store} from '../../store/index';
+import store from '../../store';
 
 class AxiosInterceptors {
 	constructor(appAPIServer) {
